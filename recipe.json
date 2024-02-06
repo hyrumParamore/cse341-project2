@@ -1,0 +1,83 @@
+[
+    {
+      "title": "Spaghetti Carbonara",
+      "description": "A classic Italian pasta dish",
+      "instructions": "1. Cook pasta. 2. Fry pancetta. 3. Mix eggs, cheese, and cooked pasta. 4. Add pancetta. 5. Serve hot.",
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 15,
+      "ingredients": [
+        {
+          "name": "Spaghetti",
+          "quantity": 200,
+          "unit": "grams"
+        },
+        {
+          "name": "Pancetta",
+          "quantity": 50,
+          "unit": "grams"
+        }
+      ]
+    },
+    {
+      "title": "Chicken Parmesan",
+      "description": "A classic Italian-American dish",
+      "instructions": "1. Bread chicken. 2. Fry chicken. 3. Top with marinara sauce and cheese. 4. Bake until cheese is melted. 5. Serve hot.",
+      "servings": 4,
+      "prepTime": 20,
+      "cookTime": 25,
+      "ingredients": [
+        {
+          "name": "Chicken breasts",
+          "quantity": 4,
+          "unit": "pieces"
+        },
+        {
+          "name": "Marinara sauce",
+          "quantity": 2,
+          "unit": "cups"
+        },
+        {
+          "name": "Mozzarella cheese",
+          "quantity": 1,
+          "unit": "cup"
+        },
+        {
+          "name": "Parmesan cheese",
+          "quantity": 1,
+          "unit": "cup"
+        }
+      ]
+    },
+    {
+      "title": "Caesar Salad",
+      "description": "A classic salad with Caesar dressing",
+      "instructions": "1. Toss lettuce with dressing. 2. Add croutons and cheese. 3. Serve chilled.",
+      "servings": 2,
+      "prepTime": 10,
+      "cookTime": 0,
+      "ingredients": [
+        {
+          "name": "Romaine lettuce",
+          "quantity": 1,
+          "unit": "head"
+        },
+        {
+          "name": "Croutons",
+          "quantity": 1,
+          "unit": "cup"
+        },
+        {
+          "name": "Parmesan cheese",
+          "quantity": 0.5,
+          "unit": "cup"
+        },
+        {
+          "name": "Caesar dressing",
+          "quantity": 0.5,
+          "unit": "cup"
+        }
+      ]
+    }
+  ]
+  

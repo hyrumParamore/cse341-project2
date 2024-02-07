@@ -3,12 +3,10 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
   info: {
     title: 'My API',
-    description: 'Recipes API',
+    description: 'Contacts API'
   },
-//   host: 'cse342-winter24.onrender.com',
-//   schemes: ['https'],
-  host: 'localhost:8080',
-  schemes: ['http'],
+  host: 'cse342-winter24.onrender.com',
+  schemes: ['https']
 };
 
 const outputFile = './swagger.json';

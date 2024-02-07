@@ -17,10 +17,10 @@ router.get('/:id', recipesController.getSingleRecipe);
 router.post('/', recipesController.createRecipe);
 
 // Week 3 - PUT - Update Contact, Also used middleware to check if inputs are empty or not.
-// router.put('/:id',  middleware.checkEmptyKeysMiddleware, contactsController.updateContact)
+router.put('/:id', recipesController.updateRecipe)
 
 // Week 3 - DELETE - Delete Contact
-// router.delete('/:id', contactsController.deleteContact)
+router.delete('/:id', recipesController.deleteRecipe)
 
 
 

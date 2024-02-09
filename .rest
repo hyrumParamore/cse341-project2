@@ -4,7 +4,7 @@ GET http://localhost:8080/ HTTP/1.1
 GET http://localhost:8080/recipes HTTP/1.1
 
 ### GET Single Recipe - Spaghetti Carbonara
-GET http://localhost:8080/recipes/65c29e9cc72ab290d751fa72 HTTP/1.1
+GET http://localhost:8080/recipes/65c670baa2061cee844360ac HTTP/1.1
 
 
 
@@ -13,22 +13,52 @@ POST http://localhost:8080/recipes HTTP/1.1
 Content-Type: application/json
 
 {
-  "title": "Test Spaghetti Carbonara",
-  "description": "A classic Italian pasta dish",
-  "instructions": "1. Cook pasta. 2. Fry pancetta. 3. Mix eggs, cheese, and cooked pasta. 4. Add pancetta. 5. Serve hot.",
-  "servings": 4,
-  "prepTime": 15,
-  "cookTime": 15,
+  "title": "Test Recipe",
+  "description": "any",
+  "instructions": "any",
+  "servings": 1,
+  "prepTime": 1,
+  "cookTime": 1,
   "ingredients": [
     {
-      "name": "Spaghetti",
-      "quantity": 200,
-      "unit": "grams"
+      "name": "any",
+      "quantity": 1,
+      "unit": "any"
     },
     {
-      "name": "Pancetta",
-      "quantity": 50,
-      "unit": "grams"
+      "name": "any",
+      "quantity": 1,
+      "unit": "any"
     }
   ]
 }
+
+
+### PUT - Update a Recipe
+PUT http://localhost:8080/recipes/65c670baa2061cee844360ac HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Updated Test Recipe",
+  "description": "any",
+  "instructions": "any",
+  "servings": 1,
+  "prepTime": 1,
+  "cookTime": 1,
+  "ingredients": [
+    {
+      "name": "any",
+      "quantity": 1,
+      "unit": "any"
+    },
+    {
+      "name": "any",
+      "quantity": 1,
+      "unit": "any"
+    }
+  ]
+}
+
+
+### DELETE Contact 
+DELETE http://localhost:8080/recipes/65c67033a2061cee844360ab HTTP/1.1

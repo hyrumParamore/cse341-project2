@@ -5,21 +5,22 @@ const recipesController = require('../controllers/recipes');
 
 
 
-// Week 2 - GET Route to retrieve contacts from database.
+// GET Route to retrieve All Recipes from database.
 router.get('/', recipesController.getAllRecipes);
-// Week 2
+
+// GET - Recipe by ID
 router.get('/:id', recipesController.getSingleRecipe);
 
-// Middleware to check if input fields are filled in or not.
+// Middleware to check if input fields are filled in or not. (Haven't added this yet)
 // const middleware = require('../middleware/recipes'); 
 
-// Week 3 - POST Route to create a contact. Also created middleware to check if the inputs are empty or not.
+// POST Route to create a Recipe. Also created middleware to check if the inputs are empty or not.
 router.post('/', recipesController.createRecipe);
 
-// Week 3 - PUT - Update Contact, Also used middleware to check if inputs are empty or not.
+// PUT - Update Recipe, Also used middleware to check if inputs are empty or not.
 router.put('/:id', recipesController.updateRecipe)
 
-// Week 3 - DELETE - Delete Contact
+// DELETE - Delete Recipe
 router.delete('/:id', recipesController.deleteRecipe)
 
 

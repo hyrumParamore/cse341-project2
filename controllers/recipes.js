@@ -2,7 +2,7 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 
-// Week 2 - Get All Contacts
+// Get All Recipes
 const getAllRecipes = async (req, res) => {
   try {
     const result = await mongodb.getDb().db().collection('recipes').find();
@@ -16,7 +16,8 @@ const getAllRecipes = async (req, res) => {
   
 };
 
-// Week 2 - Get Single Contact From ID
+
+// GET Recipe by ID
 const getSingleRecipe = async (req, res) => {
   try {
     const recipeId = new ObjectId(req.params.id);
@@ -35,7 +36,7 @@ const getSingleRecipe = async (req, res) => {
   
 };
 
-
+// Create new Recipe
 const createRecipe = async (req, res ) => {  
   try {
     const recipe = {
@@ -59,7 +60,7 @@ const createRecipe = async (req, res ) => {
 };
 
 
-
+// Update Recipe by ID
 const updateRecipe = async (req, res) => {
   try {
     const recipeId = new ObjectId(req.params.id);
@@ -87,7 +88,7 @@ const updateRecipe = async (req, res) => {
   }
 };
 
-
+// Delete Recipe by ID
 const deleteRecipe = async (req, res) => {
   try {
     const recipeId = new ObjectId(req.params.id);
@@ -97,7 +98,7 @@ const deleteRecipe = async (req, res) => {
     if (response.deletedCount > 0) {
       res.status(204).send();
     } else {
-      res.status(404).json({ error: 'Contact not found' });
+      res.status(404).json({ error: 'Recipe not found' });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });

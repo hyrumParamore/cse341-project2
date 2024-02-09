@@ -1,15 +1,50 @@
+// RENDER WEBSITE: https://cse341-project2-qlp6.onrender.com
+
 GET http://localhost:8080/ HTTP/1.1
 
-###
+
+### GET all recipes
 GET http://localhost:8080/recipes HTTP/1.1
 
-### GET Single Recipe - Spaghetti Carbonara
+### GET all recipes - RENDER
+GET https://cse341-project2-qlp6.onrender.com/recipes HTTP/1.1
+
+
+### GET Single Recipe by ID
 GET http://localhost:8080/recipes/65c670baa2061cee844360ac HTTP/1.1
+
+### GET Single Recipe by ID - RENDER
+GET https://cse341-project2-qlp6.onrender.com/recipes/65c672fa3cc5cd0f2fa6745f HTTP/1.1
 
 
 
 ### POST - Create a new Recipe
 POST http://localhost:8080/recipes HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Test Recipe",
+  "description": "any",
+  "instructions": "any",
+  "servings": 1,
+  "prepTime": 1,
+  "cookTime": 1,
+  "ingredients": [
+    {
+      "name": "any",
+      "quantity": 1,
+      "unit": "any"
+    },
+    {
+      "name": "any",
+      "quantity": 1,
+      "unit": "any"
+    }
+  ]
+}
+
+### POST - Create a new Recipe - RENDER
+POST https://cse341-project2-qlp6.onrender.com/recipes HTTP/1.1
 Content-Type: application/json
 
 {
@@ -59,6 +94,35 @@ Content-Type: application/json
   ]
 }
 
+### PUT - Update a Recipe - RENDER
+PUT https://cse341-project2-qlp6.onrender.com/recipes/65c672fa3cc5cd0f2fa6745f HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Updated Test Recipe",
+  "description": "any",
+  "instructions": "any",
+  "servings": 1,
+  "prepTime": 1,
+  "cookTime": 1,
+  "ingredients": [
+    {
+      "name": "any",
+      "quantity": 1,
+      "unit": "any"
+    },
+    {
+      "name": "any",
+      "quantity": 1,
+      "unit": "any"
+    }
+  ]
+}
+
 
 ### DELETE Contact 
 DELETE http://localhost:8080/recipes/65c67033a2061cee844360ab HTTP/1.1
+
+### DELETE Contact - RENDER 
+DELETE https://cse341-project2-qlp6.onrender.com/recipes/65c672fa3cc5cd0f2fa6745f HTTP/1.1
+

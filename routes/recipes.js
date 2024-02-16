@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const recipesController = require('../controllers/recipes');
 
+const validation = require('../middleware/validate');
+
+
 
 
 
@@ -15,10 +18,10 @@ router.get('/:id', recipesController.getSingleRecipe);
 // const middleware = require('../middleware/recipes'); 
 
 // POST Route to create a Recipe. Also created middleware to check if the inputs are empty or not.
-router.post('/', recipesController.createRecipe);
+router.post('/', validation.saveRecipe, recipesController.createRecipe);
 
 // PUT - Update Recipe, Also used middleware to check if inputs are empty or not.
-router.put('/:id', recipesController.updateRecipe)
+router.put('/:id', validation.saveRecipe, recipesController.updateRecipe)
 
 // DELETE - Delete Recipe
 router.delete('/:id', recipesController.deleteRecipe)

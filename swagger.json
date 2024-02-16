@@ -156,17 +156,26 @@
                   "example": "any"
                 },
                 "servings": {
-                  "example": "any"
+                  "example": 1
                 },
                 "prepTime": {
-                  "example": "any"
+                  "example": 1
                 },
                 "cookTime": {
-                  "example": "any"
+                  "example": 1
                 },
-                "ingredients": {
-                  "example": "any"
-                }
+                "ingredients": [
+                  {
+                    "name": "any",
+                    "quantity": 1,
+                    "unit": "any"
+                  },
+                  {
+                    "name": "any",
+                    "quantity": 1,
+                    "unit": "any"
+                  }
+                ]
               }
             }
           }

@@ -78,18 +78,26 @@
                 "cookTime": {
                   "example": 1
                 },
-                "ingredients": [
-                  {
-                    "name": "any",
-                    "quantity": 1,
-                    "unit": "any"
-                  },
-                  {
-                    "name": "any",
-                    "quantity": 1,
-                    "unit": "any"
+                "ingredients": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "example": "any"
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "unit": {
+                        "type": "string",
+                        "example": "any"
+                      }
+                    }
                   }
-                ]
+                }
               }
             }
           }
@@ -164,18 +172,26 @@
                 "cookTime": {
                   "example": 1
                 },
-                "ingredients": [
-                  {
-                    "name": "any",
-                    "quantity": 1,
-                    "unit": "any"
-                  },
-                  {
-                    "name": "any",
-                    "quantity": 1,
-                    "unit": "any"
+                "ingredients": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "example": "any"
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "unit": {
+                        "type": "string",
+                        "example": "any"
+                      }
+                    }
                   }
-                ]
+                }
               }
             }
           }

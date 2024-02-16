@@ -13,6 +13,14 @@ app
   })
   .use('/', require('./routes'));
 
+
+// *********************************************
+// This is to test the error handler below. Un comment it to use it. (It works :D)
+// app.get('/error', (req, res) => {
+//   throw new Error('This is an intentional uncaught exception');
+// });
+// *********************************************
+
 process.on('uncaughtException', (err, origin) => {
   console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`)
 });

@@ -6,14 +6,12 @@ const ObjectId = require('mongodb').ObjectId;
 const getAllRecipes = async (req, res) => {
   try {
     const result = await mongodb.getDb().db().collection('recipes').find();
-    result.toArray().then((lists) => {
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists);
-    });
+    const lists = await result.toArray();
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(lists);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-  
 };
 
 
@@ -21,19 +19,17 @@ const getAllRecipes = async (req, res) => {
 const getSingleRecipe = async (req, res) => {
   try {
     const recipeId = new ObjectId(req.params.id);
-    const result = await mongodb
-      .getDb()
-      .db()
-      .collection('recipes')
-      .find({ _id: recipeId });
-    result.toArray().then((lists) => {
+    const result = await mongodb.getDb().db().collection('recipes').find({ _id: recipeId });
+    const lists = await result.toArray();
+    if (lists.length > 0) {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists[0]);
-    });
+    } else {
+      res.status(404).json({ error: 'Recipe not found' });
+    }
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-  
 };
 
 // Create new Recipe
@@ -52,7 +48,7 @@ const createRecipe = async (req, res ) => {
     if (response.acknowledged) {
       res.status(201).json(response);
     } else {
-      res.status(500).json(response.error || 'Some error occurred while creating the recipe.');
+      res.status(500).json(response.error || 'Failed to create recipe.');
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -81,7 +77,7 @@ const updateRecipe = async (req, res) => {
     if (response.modifiedCount > 0) {
       res.status(204).send();
     } else {
-      res.status(500).json(response.error || 'Some error occurred while updating the recipe.');
+      res.status(500).json(response.error || 'Failed to update recipe.');
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -98,7 +94,7 @@ const deleteRecipe = async (req, res) => {
     if (response.deletedCount > 0) {
       res.status(204).send();
     } else {
-      res.status(404).json({ error: 'Recipe not found. Please enter a valid recipe.' });
+      res.status(404).json({ error: 'Recipe not found.' });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });

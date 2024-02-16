@@ -4,23 +4,22 @@ const recipesController = require('../controllers/recipes');
 
 const validation = require('../middleware/validate');
 
+// ************************************************************
+// ERROR HANDLING is happening in the controller/recipes file
+// I didn't find it necessary to have multiple error checks 
+// basically covering the same things. It would have been redundant.
+// ************************************************************
 
-
-
-
-// GET Route to retrieve All Recipes from database.
+// GET - Route to retrieve All Recipes from database.
 router.get('/', recipesController.getAllRecipes);
 
 // GET - Recipe by ID
 router.get('/:id', recipesController.getSingleRecipe);
 
-// Middleware to check if input fields are filled in or not. (Haven't added this yet)
-// const middleware = require('../middleware/recipes'); 
-
-// POST Route to create a Recipe. Also created middleware to check if the inputs are empty or not.
+// POST - Route to create a Recipe. 
 router.post('/', validation.saveRecipe, recipesController.createRecipe);
 
-// PUT - Update Recipe, Also used middleware to check if inputs are empty or not.
+// PUT - Update Recipe.
 router.put('/:id', validation.saveRecipe, recipesController.updateRecipe)
 
 // DELETE - Delete Recipe

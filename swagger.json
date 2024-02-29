@@ -159,25 +159,36 @@
               "type": "object",
               "properties": {
                 "title": {
-                  "example": "any"
+                  "example": "Recipe Name"
                 },
                 "description": {
-                  "example": "any"
+                  "example": "Description"
                 },
                 "instructions": {
-                  "example": "any"
+                  "example": "Instructions"
                 },
                 "servings": {
-                  "example": "any"
+                  "example": 1
                 },
                 "prepTime": {
-                  "example": "any"
+                  "example": 1
                 },
                 "cookTime": {
-                  "example": "any"
+                  "example": 1
                 },
                 "ingredients": {
-                  "example": "any"
+                  "example": [
+                    {
+                      "name": "Ingredient 1 Name",
+                      "quantity": 1,
+                      "unit": "Ingredient 1 Unit"
+                    },
+                    {
+                      "name": "Ingredient 2 Name",
+                      "quantity": 1,
+                      "unit": "Ingredient 2 Unit"
+                    }
+                  ]
                 }
               }
             }

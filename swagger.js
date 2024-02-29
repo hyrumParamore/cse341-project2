@@ -5,7 +5,7 @@ const doc = {
         title: 'My API',
         description: 'Recipe API'
     },
-    host: 'https://cse341-project2-qlp6.onrender.com',
+    host: 'cse341-project2-qlp6.onrender.com',
     schemes: ['https'],
     securityDefinitions: {
         GoogleOAuth: {

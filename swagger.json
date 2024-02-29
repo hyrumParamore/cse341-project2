@@ -60,24 +60,38 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": "Test Recipe",
-                "description": "any",
-                "instructions": "any",
-                "servings": 1,
-                "prepTime": 1,
-                "cookTime": 1,
-                "ingredients": [
-                  {
-                    "name": "any",
-                    "quantity": 1,
-                    "unit": "any"
-                  },
-                  {
-                    "name": "any",
-                    "quantity": 1,
-                    "unit": "any"
-                  }
-                ]
+                "title": {
+                  "example": "Recipe Name"
+                },
+                "description": {
+                  "example": "Description"
+                },
+                "instructions": {
+                  "example": "Instructions"
+                },
+                "servings": {
+                  "example": 1
+                },
+                "prepTime": {
+                  "example": 1
+                },
+                "cookTime": {
+                  "example": 1
+                },
+                "ingredients": {
+                  "example": [
+                    {
+                      "name": "Ingredient 1 Name",
+                      "quantity": 1,
+                      "unit": "Ingredient 1 Unit"
+                    },
+                    {
+                      "name": "Ingredient 2 Name",
+                      "quantity": 1,
+                      "unit": "Ingredient 2 Unit"
+                    }
+                  ]
+                }
               }
             }
           }
@@ -144,24 +158,27 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": "Test Recipe",
-                "description": "any",
-                "instructions": "any",
-                "servings": 1,
-                "prepTime": 1,
-                "cookTime": 1,
-                "ingredients": [
-                  {
-                    "name": "any",
-                    "quantity": 1,
-                    "unit": "any"
-                  },
-                  {
-                    "name": "any",
-                    "quantity": 1,
-                    "unit": "any"
-                  }
-                ]
+                "title": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "instructions": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "prepTime": {
+                  "example": "any"
+                },
+                "cookTime": {
+                  "example": "any"
+                },
+                "ingredients": {
+                  "example": "any"
+                }
               }
             }
           }

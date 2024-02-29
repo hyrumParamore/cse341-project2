@@ -60,27 +60,24 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "instructions": {
-                  "example": "any"
-                },
-                "servings": {
-                  "example": "any"
-                },
-                "prepTime": {
-                  "example": "any"
-                },
-                "cookTime": {
-                  "example": "any"
-                },
-                "ingredients": {
-                  "example": "any"
-                }
+                "title": "Test Recipe",
+                "description": "any",
+                "instructions": "any",
+                "servings": 1,
+                "prepTime": 1,
+                "cookTime": 1,
+                "ingredients": [
+                  {
+                    "name": "any",
+                    "quantity": 1,
+                    "unit": "any"
+                  },
+                  {
+                    "name": "any",
+                    "quantity": 1,
+                    "unit": "any"
+                  }
+                ]
               }
             }
           }
@@ -147,27 +144,24 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "instructions": {
-                  "example": "any"
-                },
-                "servings": {
-                  "example": "any"
-                },
-                "prepTime": {
-                  "example": "any"
-                },
-                "cookTime": {
-                  "example": "any"
-                },
-                "ingredients": {
-                  "example": "any"
-                }
+                "title": "Test Recipe",
+                "description": "any",
+                "instructions": "any",
+                "servings": 1,
+                "prepTime": 1,
+                "cookTime": 1,
+                "ingredients": [
+                  {
+                    "name": "any",
+                    "quantity": 1,
+                    "unit": "any"
+                  },
+                  {
+                    "name": "any",
+                    "quantity": 1,
+                    "unit": "any"
+                  }
+                ]
               }
             }
           }

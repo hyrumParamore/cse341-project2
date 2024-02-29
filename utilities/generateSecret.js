@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 
-const generateSecret = crypto.randomBytes(32).toString('hex');
-console.log('Session secret:', generateSecret);
+const generateSecret = () => {
+  return crypto.randomBytes(64).toString('hex');
+};
 
-module.exports = generateSecret;
+console.log(generateSecret());

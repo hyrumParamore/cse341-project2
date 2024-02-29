@@ -1,8 +1,7 @@
 const express = require('express');
-
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
-require('./utilities/auth');
+require('./utilities/passport');
 
 const port = process.env.PORT || 8080;
 const app = express();

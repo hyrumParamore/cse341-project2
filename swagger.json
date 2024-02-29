@@ -2,28 +2,54 @@
   "swagger": "2.0",
   "info": {
     "title": "My API",
-    "description": "Contacts API",
+    "description": "Recipe API",
     "version": "1.0.0"
   },
   "host": "cse341-project2-qlp6.onrender.com",
   "basePath": "/",
   "tags": [
     {
-      "name": "API",
-      "description": ""
+      "name": "Google Auth Routes",
+      "description": "Routes for authentication using OAuth"
     },
     {
-      "name": "User",
-      "description": ""
+      "name": "Unprotected Routes",
+      "description": "General User Routes that don't require user authentication"
+    },
+    {
+      "name": "Protected Routes",
+      "description": "Protected Routes that require the user to be authenticated"
     }
   ],
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "GoogleOAuth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "scopes": {
+        "email": "Access user email address",
+        "profile": "Access user profile information"
+      }
+    }
+  },
   "paths": {
-    "/api-docs": {
+    "/auth/google": {
       "get": {
-        "tags": ["API"],
+        "tags": ["Google Auth Routes"],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": "Recipes"
+          }
+        }
+      }
+    },
+    "/google/callback": {
+      "get": {
+        "tags": ["Google Auth Routes"],
         "description": "",
         "responses": {
           "default": {
@@ -34,8 +60,7 @@
     },
     "/recipes/": {
       "get": {
-        "tags": ["User"],
-        "summary": "Get all Recipes",
+        "tags": ["Unprotected Routes"],
         "description": "",
         "produces": [
           "application/json"
@@ -50,10 +75,14 @@
         }
       },
       "post": {
-        "tags": ["User"],
-        "summary": "Create new Recipe",
+        "tags": ["Protected Routes"],
         "description": "",
         "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -70,33 +99,16 @@
                   "example": "any"
                 },
                 "servings": {
-                  "example": 1
+                  "example": "any"
                 },
                 "prepTime": {
-                  "example": 1
+                  "example": "any"
                 },
                 "cookTime": {
-                  "example": 1
+                  "example": "any"
                 },
                 "ingredients": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "example": "any"
-                      },
-                      "quantity": {
-                        "type": "integer",
-                        "example": 1
-                      },
-                      "unit": {
-                        "type": "string",
-                        "example": "any"
-                      }
-                    }
-                  }
+                  "example": "any"
                 }
               }
             }
@@ -105,6 +117,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "412": {
             "description": "Precondition Failed"
@@ -117,8 +132,7 @@
     },
     "/recipes/{id}": {
       "get": {
-        "tags": ["User"],
-        "summary": "Returns Recipe by Recipe ID",
+        "tags": ["Unprotected Routes"],
         "description": "",
         "produces": [
           "application/json"
@@ -135,14 +149,16 @@
           "200": {
             "description": "OK"
           },
+          "404": {
+            "description": "Not Found"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "put": {
-        "tags": ["User"],
-        "summary": "Update Recipe",
+        "tags": ["Protected Routes"],
         "description": "",
         "parameters": [
           {
@@ -151,6 +167,7 @@
             "required": true,
             "type": "string"
           },
+
           {
             "name": "body",
             "in": "body",
@@ -167,33 +184,16 @@
                   "example": "any"
                 },
                 "servings": {
-                  "example": 1
+                  "example": "any"
                 },
                 "prepTime": {
-                  "example": 1
+                  "example": "any"
                 },
                 "cookTime": {
-                  "example": 1
+                  "example": "any"
                 },
                 "ingredients": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "example": "any"
-                      },
-                      "quantity": {
-                        "type": "integer",
-                        "example": 1
-                      },
-                      "unit": {
-                        "type": "string",
-                        "example": "any"
-                      }
-                    }
-                  }
+                  "example": "any"
                 }
               }
             }
@@ -202,6 +202,9 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "412": {
             "description": "Precondition Failed"
@@ -212,8 +215,7 @@
         }
       },
       "delete": {
-        "tags": ["User"],
-        "summary": "Delete Recipe",
+        "tags": ["Protected Routes"],
         "description": "",
         "parameters": [
           {
@@ -227,6 +229,9 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -236,5 +241,13 @@
         }
       }
     }
-  }
+  },
+  "security": [
+    {
+      "GoogleOAuth": [
+        "email",
+        "profile"
+      ]
+    }
+  ]
 }

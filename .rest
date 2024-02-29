@@ -6,6 +6,9 @@ GET http://localhost:8080/ HTTP/1.1
 ### GET all recipes
 GET http://localhost:8080/recipes HTTP/1.1
 
+### GET Profile recipes
+GET http://localhost:8080/recipes/profile HTTP/1.1
+
 ### GET all recipes - RENDER
 GET https://cse341-project2-qlp6.onrender.com/recipes HTTP/1.1
 

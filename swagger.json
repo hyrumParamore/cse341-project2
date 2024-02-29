@@ -9,10 +9,6 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "Google Auth Routes",
-      "description": "Routes for authentication using OAuth"
-    },
-    {
       "name": "Unprotected Routes",
       "description": "General User Routes that don't require user authentication"
     },
@@ -36,31 +32,10 @@
     }
   },
   "paths": {
-    "/auth/google": {
-      "get": {
-        "tags": ["Google Auth Routes"],
-        "description": "",
-        "responses": {
-          "default": {
-            "description": "Recipes"
-          }
-        }
-      }
-    },
-    "/google/callback": {
-      "get": {
-        "tags": ["Google Auth Routes"],
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/recipes/": {
       "get": {
         "tags": ["Unprotected Routes"],
+        "summary": "Get all Recipes",
         "description": "",
         "produces": [
           "application/json"
@@ -76,13 +51,9 @@
       },
       "post": {
         "tags": ["Protected Routes"],
+        "summary": "Create new Recipe",
         "description": "",
         "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",
@@ -133,6 +104,7 @@
     "/recipes/{id}": {
       "get": {
         "tags": ["Unprotected Routes"],
+        "summary": "Get Recipe by ID",
         "description": "",
         "produces": [
           "application/json"
@@ -159,6 +131,7 @@
       },
       "put": {
         "tags": ["Protected Routes"],
+        "summary": "Update Recipe by ID",
         "description": "",
         "parameters": [
           {
@@ -216,6 +189,7 @@
       },
       "delete": {
         "tags": ["Protected Routes"],
+        "summary": "Delete Recipe by ID",
         "description": "",
         "parameters": [
           {

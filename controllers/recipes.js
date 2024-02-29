@@ -93,6 +93,7 @@ const deleteRecipe = async (req, res) => {
 
     if (response.deletedCount > 0) {
       res.status(204).send();
+      res.send('Recipe deleted successfully');
     } else {
       res.status(404).json({ error: 'Recipe not found.' });
     }

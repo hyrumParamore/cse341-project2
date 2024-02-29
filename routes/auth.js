@@ -18,27 +18,27 @@ router.use(session({ secret: secret, resave: false, saveUninitialized: true }));
 router.use(passport.initialize());
 router.use(passport.session());
 
-// router.get('/', (req, res) => {
-//   res.send('<a href="/auth/google"> Authentication with Google</a>');
-// });
+router.get('/', (req, res) => {
+  res.send('<a href="/auth/google"> Authentication with Google</a>');
+});
 
 router.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
 
-// router.get('/google/callback', passport.authenticate('google', {
-//   failureRedirect: '/google/failure' // Redirect to login page if authentication fails
-// }), (req, res) => {
-//   res.redirect('/'); // Redirect upon successful authentication
-// });
+router.get('/google/callback', passport.authenticate('google', {
+  failureRedirect: '/google/failure' // Redirect to login page if authentication fails
+}), (req, res) => {
+  res.redirect('/api-docs'); // Redirect upon successful authentication
+});
 
 
 // router.get('/profile', (req, res) => {
 //   res.send(req.user); // Access user information from req.user
 // });
 
-router.get('/google/callback', passport.authenticate('google', {
-  successRedirect: '/api-docs',
-  failureRedirect: '/auth/google/failure'
-}));
+// router.get('/google/callback', passport.authenticate('google', {
+//   successRedirect: '/api-docs',
+//   failureRedirect: '/auth/google/failure'
+// }));
 
 // // This route contains middleware (isLoggedIn) in order to access. If that login fails, it will reroute 
 // // you to a different page.

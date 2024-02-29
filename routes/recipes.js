@@ -1,32 +1,35 @@
 const express = require('express');
 const router = express.Router();
 const recipesController = require('../controllers/recipes');
-// const authController = require('../controllers/auth');
+
+
 
 const validation = require('../middleware/validate');
-// const authMiddleware = require('../middleware/auth')
+const authMiddleware = require('../middleware/auth')
 
 
-function isAuthenticated(req, res, next) {
-    const bearerHeader = req.headers['authorization'];
-    if (typeof bearerHeader !== 'undefined') {
-        const bearerToken = bearerHeader.split(' ')[1];
-        req.token = bearerToken;
-        // Here, you would validate the bearer token (e.g., check if it's valid, not expired, etc.)
-        // For simplicity, let's assume the token is valid
-        return next();
-    } else {
-        res.status(401).send('Unauthorized');
-    }
-}
+// function isAuthenticated(req, res, next) {
+//     const bearerHeader = req.headers['authorization'];
+//     if (typeof bearerHeader !== 'undefined') {
+//         const bearerToken = bearerHeader.split(' ')[1];
+//         req.token = bearerToken;
+//         // This is where you would validate the bearer token, but for now I am just going to
+//         // assume that the token is valid. It makes it easier to work with right now.
+//         jwt.verify(bearerToken, 'your_secret_key', (err, decoded) => {
+//             if (err) {
+//                 res.status(403).send('Invalid token');
+//             } else {
+//                 // Token is valid, you can proceed to the next middleware
+//                 // or route handler
+//                 req.decodedToken = decoded;
+//                 next();
+//             }
+//         });
+//     } else {
+//         res.status(401).send('Unauthorized');
+//     }
+// }
 
-// router.get('/profile', isAuthenticated, (req, res) => {
-//     res.send('This is your profile');
-// });
-
-// router.get('/api/protected-route', isAuthenticated, (req, res) => {
-//     res.send('This is a protected route');
-// });
 
 // GET - Route to retrieve All Recipes from database.
 router.get('/', recipesController.getAllRecipes);
@@ -35,15 +38,15 @@ router.get('/', recipesController.getAllRecipes);
 router.get('/:id', recipesController.getSingleRecipe);
 
 // POST - Route to create a Recipe. 
-router.post('/', isAuthenticated, validation.saveRecipe, recipesController.createRecipe);
+router.post('/', authMiddleware.isAuthenticated, validation.saveRecipe, recipesController.createRecipe);
 
 
 
 // PUT - Update Recipe.
-router.put('/:id', isAuthenticated, validation.saveRecipe, recipesController.updateRecipe)
+router.put('/:id', authMiddleware.isAuthenticated, validation.saveRecipe, recipesController.updateRecipe)
 
 // DELETE - Delete Recipe
-router.delete('/:id', isAuthenticated, recipesController.deleteRecipe)
+router.delete('/:id', authMiddleware.isAuthenticated, recipesController.deleteRecipe)
 
 
 

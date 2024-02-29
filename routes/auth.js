@@ -22,23 +22,23 @@ router.use(passport.session());
 //   res.send('<a href="/auth/google"> Authentication with Google</a>');
 // });
 
-router.get('/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
+router.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
 
-router.get('/google/callback', passport.authenticate('google', {
-  failureRedirect: '/google/failure' // Redirect to login page if authentication fails
-}), (req, res) => {
-  res.redirect('/'); // Redirect upon successful authentication
-});
+// router.get('/google/callback', passport.authenticate('google', {
+//   failureRedirect: '/google/failure' // Redirect to login page if authentication fails
+// }), (req, res) => {
+//   res.redirect('/'); // Redirect upon successful authentication
+// });
 
 
 // router.get('/profile', (req, res) => {
 //   res.send(req.user); // Access user information from req.user
 // });
 
-// router.get('/google/callback', passport.authenticate('google', {
-//   successRedirect: '/api-docs',
-//   failureRedirect: '/auth/google/failure'
-// }));
+router.get('/google/callback', passport.authenticate('google', {
+  successRedirect: '/api-docs',
+  failureRedirect: '/auth/google/failure'
+}));
 
 // // This route contains middleware (isLoggedIn) in order to access. If that login fails, it will reroute 
 // // you to a different page.

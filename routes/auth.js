@@ -22,12 +22,12 @@ router.use(passport.session());
 //   res.send('<a href="/auth/google"> Authentication with Google</a>');
 // });
 
-router.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
+router.get('/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
 
 router.get('/google/callback', passport.authenticate('google', {
   failureRedirect: '/google/failure' // Redirect to login page if authentication fails
 }), (req, res) => {
-  res.redirect('/'); // Redirect to profile page upon successful authentication
+  res.redirect('/'); // Redirect upon successful authentication
 });
 
 

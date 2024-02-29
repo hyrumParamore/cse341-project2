@@ -10,11 +10,11 @@ const router = express.Router();
 
 // I currently don't have a SESSION_SECRET because I don't know if it is really necessary right now.
 // So I have a function that will create a new one every session.
-const secret = process.env.SESSION_SECRET
+// const secret = process.env.SESSION_SECRET
 // const secret = 'cat';
 
 
-router.use(session({ secret: secret, resave: false, saveUninitialized: true }));
+router.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));
 router.use(passport.initialize());
 router.use(passport.session());
 

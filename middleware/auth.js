@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 // const generateSecret = require('../utilities/generateSecret')
 
-const secret = process.env.SESSION_SECRET
+// const secret = process.env.SESSION_SECRET
 
 
 const isAuthenticated = async (req, res, next) => {
@@ -11,7 +11,7 @@ const isAuthenticated = async (req, res, next) => {
         req.token = bearerToken;
 
         // Validate the Bearer Token
-        jwt.verify(bearerToken, secret, (err, decoded) => {
+        jwt.verify(bearerToken, process.env.SESSION_SECRET, (err, decoded) => {
             if (err) {
                 res.status(403).send('Invalid token');
             } else {

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const generateSecret = require('../utilities/generateSecret')
+// const generateSecret = require('../utilities/generateSecret')
 
-const secret = process.env.SESSION_SECRET || generateSecret()
+const secret = process.env.SESSION_SECRET
 
 
 const isAuthenticated = async (req, res, next) => {

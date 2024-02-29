@@ -4,13 +4,13 @@ const passport = require('passport');
 
 // const authController = require('../controllers/auth');
 // const authMiddleware = require('../middleware/auth')
-const generateSecret = require('../utilities/generateSecret')
+// const generateSecret = require('../utilities/generateSecret')
 
 const router = express.Router();
 
 // I currently don't have a SESSION_SECRET because I don't know if it is really necessary right now.
 // So I have a function that will create a new one every session.
-const secret = process.env.SESSION_SECRET || generateSecret()
+const secret = process.env.SESSION_SECRET
 // const secret = 'cat';
 
 

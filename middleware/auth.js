@@ -10,6 +10,9 @@ const isAuthenticated = async (req, res, next) => {
         const bearerToken = bearerHeader.split(' ')[1];
         req.token = bearerToken;
 
+        console.log(`bearer token: ${bearerToken}`)
+        console.log(`req.token: ${req.token}`)
+
         // Validate the Bearer Token
         jwt.verify(bearerToken, process.env.SESSION_SECRET, (err, decoded) => {
             if (err) {
